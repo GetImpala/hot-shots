@@ -1,5 +1,5 @@
 {
-  "name": "@getimpala/hot-shots",
+  "name": "@get-impala/hot-shots",
   "description": "A fork of Hot-Shot, a Node.js client for StatsD, DogStatsD, and Telegraf",
   "version": "9.3.0",
   "author": "Steve Ivy",
