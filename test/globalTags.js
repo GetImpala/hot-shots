@@ -153,10 +153,29 @@ describe('#globalTags', () => {
           statsd = createHotShotsClient(Object.assign(opts, {
             globalTags: { foo: 'b,a,r' },
           }), clientType);
-          statsd.increment('test', 1337, { 'reserved:character': 'is@replaced@' });
+          statsd.increment('test', 1337, { 'r`eserved+[character]': 'is@replaced(@)' });
         });
         server.on('metrics', metrics => {
-          assert.strictEqual(metrics, `test:1337|c|#foo:b_a_r,reserved_character:is_replaced_${metricEnd}`);
+          assert.strictEqual(metrics, `test:1337|c|#foo:b,a,r,r_eserved__character_:is_replaced___${metricEnd}`);
+          done();
+        });
+      });
+      /**
+       * List of allowed characters in tags:
+       * Datadog: https://docs.datadoghq.com/getting_started/tagging/
+       */
+      it('should allow alphanumberical characters, underscores, minus, commas, dot, and slashes in tags', done => {
+        server = createServer(serverType, opts => {
+          statsd = createHotShotsClient(Object.assign(opts, {
+            globalTags: {
+              foo: 'b,a,r',
+              url: '/myapi/property/:id'
+          },
+          }), clientType);
+          statsd.increment('test', 1337, { 'accepted;characters': '_are-not-replaced.' });
+        });
+        server.on('metrics', metrics => {
+          assert.strictEqual(metrics, `test:1337|c|#foo:b,a,r,url:/myapi/property/:id,accepted_characters:_are-not-replaced.${metricEnd}`);
           done();
         });
       });

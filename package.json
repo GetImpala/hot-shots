@@ -1,7 +1,7 @@
 {
-  "name": "hot-shots",
-  "description": "Node.js client for StatsD, DogStatsD, and Telegraf",
-  "version": "9.2.0",
+  "name": "@getimpala/hot-shots",
+  "description": "A fork of Hot-Shot, a Node.js client for StatsD, DogStatsD, and Telegraf",
+  "version": "9.3.0",
   "author": "Steve Ivy",
   "types": "./types.d.ts",
   "contributors": [
@@ -15,13 +15,6 @@
     "metrics",
     "telegraf"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/brightcove/hot-shots.git"
-  },
-  "bugs": {
-    "url": "https://github.com/brightcove/hot-shots/issues"
-  },
   "directories": {
     "lib": "./lib/"
   },

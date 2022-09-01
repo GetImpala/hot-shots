@@ -292,8 +292,6 @@ When you've done all this we're happy to try to get this merged in right away.
 
 Versions will attempt to follow semantic versioning, with major changes only coming in major versions.
 
-npm publishing is possible by one person, [bdeitte](https://github.com/bdeitte), who has two-factor authentication enabled for publishes.  Publishes only contain one additional library, unix-dgram.
-
 ## Name
 
 Why is this project named hot-shots?  Because:
@@ -302,6 +300,3 @@ Why is this project named hot-shots?  Because:
 2. It's the name of a dumb movie
 3. No good reason
 
-## License
-
-hot-shots is licensed under the MIT license.
